@@ -32,7 +32,7 @@ export default function RootLayout({
       >
         <div className='w-full h-screen flex flex-col overflow-y-hidden'>
           <Header />
-          <main className='container mx-auto flex flex-col flex-grow overflow-y-auto'>
+          <main className='flex flex-col grow overflow-y-auto'>
             {children}
           </main>
           <Footer />
