@@ -1,12 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Restaurant } from "@/types/restaurant";
+
+
 interface RestaurantCardProps {
   restaurant : Restaurant 
 }
+
 export default async function RestaurantCard({restaurant}:RestaurantCardProps) {
   return (
-    <div
+    <Link href={`/restaurants/${restaurant.UC_SEQ}`}
           className="h-80 border rounded-lg overflow-hidden 
                     shadow-md hover:shadow-xl
                     transition-shadow duration-300 bg-white">
@@ -16,7 +19,7 @@ export default async function RestaurantCard({restaurant}:RestaurantCardProps) {
             <Image  src={restaurant.MAIN_IMG_NORMAL} 
                     alt={restaurant.TITLE} 
                     fill
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
                     style={{objectFit : 'cover'}}
                     priority />
             // <img src={restaurant.MAIN_IMG_NORMAL} alt={restaurant.TITLE} 
@@ -37,6 +40,6 @@ export default async function RestaurantCard({restaurant}:RestaurantCardProps) {
       <p className="text-sm text-gray-800 my-2 truncate px-4">
         대표메뉴 : {restaurant.RPRSNTV_MENU}
       </p>
-    </div>
+    </Link>
   );
 }
