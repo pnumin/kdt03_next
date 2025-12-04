@@ -7,7 +7,7 @@ interface RestaurantCardProps {
   restaurant : Restaurant 
 }
 
-export default async function RestaurantCard({restaurant}:RestaurantCardProps) {
+export default function RestaurantCard({restaurant}:RestaurantCardProps) {
   return (
     <Link href={`/restaurants/${restaurant.UC_SEQ}`}
           className="h-80 border rounded-lg overflow-hidden 
@@ -15,8 +15,8 @@ export default async function RestaurantCard({restaurant}:RestaurantCardProps) {
                     transition-shadow duration-300 bg-white">
       <div className="relative w-full h-48 bg-gray-200">
         {
-          restaurant.MAIN_IMG_NORMAL ? (
-            <Image  src={restaurant.MAIN_IMG_NORMAL} 
+          (restaurant.MAIN_IMG_NORMAL) && (restaurant.MAIN_IMG_NORMAL != "null") ? 
+            (<Image  src={restaurant.MAIN_IMG_NORMAL} 
                     alt={restaurant.TITLE} 
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" 
